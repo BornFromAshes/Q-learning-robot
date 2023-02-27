@@ -24,4 +24,7 @@ python autograder.py
 - test_cases/ : Folder containing different tests for each question.
 - reinforcementTestClasses.py : Test classes.
 ## MDPs
-
+Can run Gridworld in manual control mode, which uses directional keys:
+```
+python gridworld.py -m
+```
