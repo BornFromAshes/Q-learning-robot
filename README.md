@@ -84,7 +84,12 @@ Run autograder to check the answer:
 python autograder.py -q q3
 ```
 ## Asynchronous Value Iteration
-
+The repetition factor is the value of an offline scheduler and not a reinforcement learning factor. The training option is related to the number of repetitions of the value that should be executed in the initial planning stage (option -i). <br>
+AsynchronousValueIterationAgent takes an MDP in the constructor and executes cyclic value iteration (described in the next paragraph) for a specified number of iterations before the constructor finishes executing. Note that all of this value iteration code is inside the constructor (__init__ method) is placed
+The reason this class is called AsynchronousValueIterationAgent is that we only update one state per iteration, as opposed to doing a batch update. Here's how cyclic value iteration works. In the first iteration, only the state value We update the first one in the state list. In the second iteration, we only update the second value. We continue this until we update the value of each state once, then we start from the first state for the next iteration. If the selected state to update is terminal, nothing happens in that iteration.
+Here is the equation for updating the status of the value iteration:
+![image](https://user-images.githubusercontent.com/117355603/222923715-529c401f-1e59-4af7-bf8a-abbf31f919b0.png)
+<br>
 
 
 
